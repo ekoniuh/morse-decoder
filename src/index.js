@@ -40,11 +40,11 @@ const MORSE_TABLE = {
 function decode(expr) {
   return expr
     .match(/.{10}/g)
-    .map((letter) =>
-      letter.charAt(0) == '*'
+    .map((let) =>
+      let.charAt(0) === '*'
         ? ' '
         : MORSE_TABLE[
-            letter.replace(/00/g, '').replace(/10/g, '.').replace(/11/g, '-')
+            let.replace(/00/g, '').replace(/10/g, '.').replace(/11/g, '-')
           ]
     )
     .join('');
@@ -53,23 +53,3 @@ function decode(expr) {
 module.exports = {
   decode,
 };
-
-// function decode(expr) {
-//   let resultCode = '';
-//   const morseNumbers = {
-//     '00': '',
-//     10: '-',
-//     11: '.',
-//   };
-//   while (expr.length) {
-//     let exprArr = expr.slice(0, 10);
-//     expr = expr.slice(10);
-//     if (expr.includes('*')) {
-//       resultCode += ' ';
-//     } else {
-//         let res = '';
-//         for()
-//     }
-//   }
-//   return resultCode;
-// }
